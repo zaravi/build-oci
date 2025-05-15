@@ -1,4 +1,4 @@
-# Zavite &nbsp; [![bluebuild build badge](https://github.com/zaravi/os/actions/workflows/build.yml/badge.svg)](https://github.com/zaravi/os/actions/workflows/build.yml)
+# Zavite &nbsp; [![bluebuild build badge](https://github.com/zaravi/zavite/actions/workflows/build.yml/badge.svg)](https://github.com/zaravi/zavite/actions/workflows/build.yml)
 
 This is a custom Bazzite image with some personal software choices and tweaks.
 
