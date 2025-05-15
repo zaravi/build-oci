@@ -1,5 +1,5 @@
 ---
-name: zavite
+name: zavite-deck
 description: Zaravi's custom OS image based on Bazzite.
 
 base-image: ghcr.io/ublue-os/bazzite-deck
