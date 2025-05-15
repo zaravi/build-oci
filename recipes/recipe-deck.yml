@@ -7,7 +7,7 @@ image-version: latest
 
 stages:
   - name: builder
-    from: ghcr.io/ublue-os/bazzite:latest
+    from: ghcr.io/ublue-os/bazzite-deck:latest
     modules:
       - type: rpm-ostree
         install:
