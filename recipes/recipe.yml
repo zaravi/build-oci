@@ -109,7 +109,6 @@ modules:
     remove:
       - kwrite
       - kfind
-      - kcharselect
       - khelpcenter
       - kate
       - kate-krunner-plugin
