@@ -103,6 +103,8 @@ modules:
       - virt-manager
       - virt-viewer
 
+      - obs-studio
+
     remove:
       - kwrite
       - kfind
