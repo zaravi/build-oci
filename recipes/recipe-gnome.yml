@@ -2,6 +2,9 @@
 name: zavite-gnome
 description: Zaravi's custom OS image based on Bazzite.
     
+base-image: ghcr.io/ublue-os/bazzite-gnome
+image-version: latest
+
 modules:
   - type: files
     files:
