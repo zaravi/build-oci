@@ -39,7 +39,7 @@ modules:
       
       - obs-studio
 
-    remove:
+    # remove:
 
   - type: default-flatpaks
     notify: true
