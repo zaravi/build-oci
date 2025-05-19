@@ -1,8 +1,8 @@
 ---
-name: zavite-gnome
+name: zavite-cosmic
 description: Zaravi's custom OS image based on Bazzite.
     
-base-image: ghcr.io/ublue-os/bazzite-gnome
+base-image: ghcr.io/ublue-os/cosmic-atomic-main
 image-version: latest
 
 modules:
@@ -38,13 +38,8 @@ modules:
       - virt-viewer
       
       - obs-studio
-      - gnome-shell-extension-pop-shell
-      - gnome-shell-extension-just-perfection
-      - gnome-shell-extension-blur-my-shell
 
     remove:
-      - nvtop
-      - ptyxis # Default Bazzite Terminal.
 
   - type: default-flatpaks
     notify: true
