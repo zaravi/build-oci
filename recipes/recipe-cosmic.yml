@@ -1,6 +1,6 @@
 ---
 name: zavite-cosmic
-description: Zaravi's custom OS image based on Bazzite.
+description: Zaravi's custom OS image based on Fedora.
     
 base-image: ghcr.io/ublue-os/cosmic-atomic-main
 image-version: latest
@@ -38,6 +38,7 @@ modules:
       - virt-viewer
       
       - obs-studio
+      - waydroid
 
     # remove:
 
@@ -54,7 +55,7 @@ modules:
         - com.usebottles.bottles
         - dev.vencord.Vesktop
         - fr.handbrake.ghb
-        - io.github.dvlv.boxbuddyrs
+        - com.ranfdev.DistroShelf
         - io.github.ungoogled_software.ungoogled_chromium
         - md.obsidian.Obsidian
         - org.archivekeep.ArchiveKeep
@@ -98,5 +99,6 @@ modules:
         - org.onlyoffice.desktopeditors
         - xyz.safeworlds.hiit
         - io.unobserved.furtherance
+        - dev.edfloreshz.CosmicTweaks
 
   - type: signing
