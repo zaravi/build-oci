@@ -31,7 +31,6 @@ modules:
       - pipx # Handy to have
       
       - syncthing # Local File Sync
-      - dolphin
 
       # Virtualization
       - qemu
