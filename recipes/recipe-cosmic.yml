@@ -19,8 +19,9 @@ modules:
       - corectrl # AMDGPU util
       - alacritty # Terminal
 
-      - nu # My Shell
-      - starship # Prompt
+      - nu # Shell (Interactive)
+      - dash # Shell (POSIX)
+      - starship # Shell Prompt
       - atuin # Shell History
       - zoxide # Magic cd
 
@@ -30,6 +31,8 @@ modules:
       - pipx # Handy to have
       
       - syncthing # Local File Sync
+      - dolphin
+      - steam
 
       # Virtualization
       - qemu
