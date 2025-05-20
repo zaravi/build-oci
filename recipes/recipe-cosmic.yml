@@ -34,7 +34,9 @@ modules:
       
       - syncthing # Local File Sync
       - dolphin
+
       - steam
+      - steam-devices
 
       # Virtualization
       - qemu
