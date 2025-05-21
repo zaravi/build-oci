@@ -41,6 +41,8 @@ modules:
       - obs-studio
       - waydroid
 
+      - just
+
   - type: default-flatpaks
     notify: true
     system:
