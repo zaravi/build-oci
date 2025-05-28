@@ -1,4 +1,10 @@
-# OCI Builds &nbsp; [![bluebuild build badge](https://github.com/zaravi/zavite/actions/workflows/build.yml/badge.svg)](https://github.com/zaravi/zavite/actions/workflows/build.yml)
+# Build OCI &nbsp; [![bluebuild build badge](https://github.com/zaravi/zavite/actions/workflows/build.yml/badge.svg)](https://github.com/zaravi/zavite/actions/workflows/build.yml)
+
+## Images
+
+- cosmic
+- bazzite-deck
+- cosmic-asus-nvidia
 
 ## Installation
 
