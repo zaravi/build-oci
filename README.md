@@ -1,11 +1,4 @@
-# Zavite &nbsp; [![bluebuild build badge](https://github.com/zaravi/zavite/actions/workflows/build.yml/badge.svg)](https://github.com/zaravi/zavite/actions/workflows/build.yml)
-
-This is a custom Bazzite image with some personal software choices and tweaks.
-
-Image|Description
----|---
-zavite|Based on Universal Blue's Bazzite images. For AMD gpu.
-zavite-deck|for steamdeck
+# OCI Builds &nbsp; [![bluebuild build badge](https://github.com/zaravi/zavite/actions/workflows/build.yml/badge.svg)](https://github.com/zaravi/zavite/actions/workflows/build.yml)
 
 ## Installation
 
