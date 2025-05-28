@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   bluebuild:
-    name: Zavite Build
+    name: OCI Build
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -24,11 +24,9 @@ jobs:
       fail-fast: false
       matrix:
         recipe:
-          - recipe.yml
-          - recipe-deck.yml
-          - recipe-gnome.yml
-          - recipe-cosmic.yml
-          - recipe-cosmic-nvidia.yml
+          - cosmic.yml
+          - bazzite-deck.yml
+          - cosmic-asus-nvidia.yml
     steps:
       - name: Build Custom Image
         uses: blue-build/github-action@v1.8

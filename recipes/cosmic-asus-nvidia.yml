@@ -1,6 +1,6 @@
 --- 
-name: zavite-cosmic
-description: Zaravi's custom OS image based on Fedora.
+name: cosmic-asus-nvidia
+description: cosmic-atomic-main with Asus and Nvidia support.
     
 base-image: ghcr.io/ublue-os/cosmic-atomic-main
 image-version: latest
@@ -32,16 +32,12 @@ modules:
       - helix # Editor
 
       - btop # System Monitor
-      
-      - syncthing # Local File Sync
 
       # Virtualization
       - qemu
       - edk2-ovmf
       - virt-manager
       - virt-viewer
-      
-      - obs-studio
 
   - type: default-flatpaks
     notify: true
