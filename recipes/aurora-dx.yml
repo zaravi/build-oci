@@ -2,8 +2,8 @@
 name: aurora-dx
 description: aurora-dx with modifications.
     
-base-image: ghcr.io/ublue-os/aurora-dx
-image-version: latest
+base-image: ghcr.io/ublue-os/aurora-dx:latest
+image-version: 42
 
 modules:
   - type: files
