@@ -25,7 +25,6 @@ jobs:
       matrix:
         recipe:
           - cosmic.yml
-          - aurora-dx.yml
           - bazzite-deck.yml
           - cosmic-asus-nvidia.yml
     steps:
