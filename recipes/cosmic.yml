@@ -45,6 +45,7 @@ modules:
       - rust-analyzer
       - npm
       - pipx
+      - libxkbcommon-devel
 
   - type: default-flatpaks
     notify: true
