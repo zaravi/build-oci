@@ -3,11 +3,11 @@ name: bazzite-deck
 description: bazzite-deck with modifications.
 
 base-image: ghcr.io/ublue-os/bazzite-deck
-image-version: latest
+image-version: stable-41
 
 stages:
   - name: builder
-    from: ghcr.io/ublue-os/bazzite-deck:latest
+    from: ghcr.io/ublue-os/bazzite-deck:stable-41
     modules:
       - type: rpm-ostree
         install:
