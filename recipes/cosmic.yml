@@ -46,6 +46,8 @@ modules:
       - npm
       - pipx
       - libxkbcommon-devel
+      - openssl-devel
+      - maven
 
   - type: default-flatpaks
     notify: true
