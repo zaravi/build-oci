@@ -51,6 +51,7 @@ modules:
       - maven
 
       - niri
+      - xwayland-satellite
 
   - type: default-flatpaks
     notify: true
