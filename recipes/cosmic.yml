@@ -51,7 +51,7 @@ modules:
       - maven
 
       - niri
-      - xwayland-satellite
+      - gamescope
 
   - type: default-flatpaks
     notify: true
