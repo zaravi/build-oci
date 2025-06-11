@@ -26,7 +26,6 @@ jobs:
         recipe:
           - cosmic.yml
           - bazzite-deck.yml
-          - cosmic-asus-nvidia.yml
     steps:
       - name: Build Custom Image
         uses: blue-build/github-action@v1.8
