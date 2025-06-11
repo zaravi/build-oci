@@ -55,6 +55,7 @@ modules:
 
       - gdisk
       - btrfs-progs
+      - btrfs-assistant
 
   - type: default-flatpaks
     notify: true
