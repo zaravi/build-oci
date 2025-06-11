@@ -54,6 +54,7 @@ modules:
       - gamescope
 
       - gdisk
+      - btrfs-progs
 
   - type: default-flatpaks
     notify: true
