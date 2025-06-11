@@ -53,6 +53,8 @@ modules:
       - niri
       - gamescope
 
+      - gdisk
+
   - type: default-flatpaks
     notify: true
     system:
