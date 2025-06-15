@@ -42,8 +42,6 @@ modules:
       - waydroid
 
       - just
-      - cargo
-      - rust-analyzer
       - npm
       - pipx
       - libxkbcommon-devel
@@ -55,7 +53,6 @@ modules:
 
       - gdisk
       - btrfs-progs
-      - btrfs-assistant
 
   - type: default-flatpaks
     notify: true
