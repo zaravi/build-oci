@@ -25,6 +25,7 @@ jobs:
       matrix:
         recipe:
           - cosmic.yml
+          - bazzite.yml
           - bazzite-deck.yml
     steps:
       - name: Build Custom Image
