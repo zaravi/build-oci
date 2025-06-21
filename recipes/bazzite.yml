@@ -1,5 +1,5 @@
 ---
-name: bazzite-deck
+name: bazzite
 description: bazzite-deck with modifications.
 
 base-image: ghcr.io/ublue-os/bazzite
