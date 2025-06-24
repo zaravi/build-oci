@@ -39,21 +39,6 @@ modules:
       - obs-studio
       - waydroid
 
-      - just
-      - npm
-      - pipx
-      - libxkbcommon-devel
-      - openssl-devel
-      - pipewire-devel
-      - piperwire-libs-devel
-      - clang-devel
-      - wireplumber-devel
-      - pulseaudio-libs-devel
-      - xz-devel
-      - gcc
-      - maven
-      - java-21-openjdk-devel
-
       - niri
       - gamescope
 
