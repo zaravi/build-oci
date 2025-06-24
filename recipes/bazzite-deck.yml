@@ -16,20 +16,19 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-%OS_VERSION%/lihaohong-yazi-fedora-%OS_VERSION%.repo
     install:
-      - corectrl # AMDGPU util
-      - alacritty # Terminal
+      - corectrl
+      - alacritty
 
-      - nu # My Shell
-      - starship # Prompt
-      - atuin # Shell History
-      - zoxide # Magic cd
+      - nu
+      - dash
+      - starship
+      - atuin
+      - zoxide
 
-      - helix # Editor
-      - yazi # File Manager
-      - btop # System Monitor
-      - pipx # Handy to have
-      
-      - syncthing # Local File Sync
+      - helix
+      - yazi
+      - btop
+      - pipx
 
       # Virtualization
       - qemu

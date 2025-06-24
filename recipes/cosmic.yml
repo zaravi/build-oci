@@ -17,22 +17,20 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-%OS_VERSION%/lihaohong-yazi-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
     install:
-      - corectrl # AMDGPU util
-      - alacritty # Terminal
+      - corectrl
+      - alacritty
 
-      - nu # Shell (Interactive)
-      - dash # Shell (POSIX)
-      - starship # Shell Prompt
-      - atuin # Shell History
-      - zoxide # Magic cd
+      - nu
+      - dash
+      - starship
+      - atuin
+      - zoxide
 
-      - helix # Editor
-      - yazi # File Manager
-      - btop # System Monitor
+      - helix
+      - yazi
+      - btop
       
-      - syncthing # Local File Sync
 
-      # Virtualization
       - qemu
       - edk2-ovmf
       - virt-manager
@@ -46,7 +44,15 @@ modules:
       - pipx
       - libxkbcommon-devel
       - openssl-devel
+      - pipewire-devel
+      - piperwire-libs-devel
+      - clang-devel
+      - wireplumber-devel
+      - pulseaudio-libs-devel
+      - xz-devel
+      - gcc
       - maven
+      - java-21-openjdk-devel
 
       - niri
       - gamescope
