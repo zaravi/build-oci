@@ -44,5 +44,6 @@ modules:
 
       - waydroid
       - gamescope
+      - gamemode
 
   - type: signing
