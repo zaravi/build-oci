@@ -15,7 +15,7 @@ modules:
     repos:
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-%OS_VERSION%/lihaohong-yazi-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
     install:
       - corectrl
       - alacritty
@@ -30,19 +30,18 @@ modules:
       - yazi
       - btop
       
-
       - qemu
       - edk2-ovmf
       - virt-manager
       - virt-viewer
       
       - obs-studio
-      - waydroid
 
       - niri
-      - gamescope
-
       - gdisk
       - btrfs-progs
+
+      - waydroid
+      - gamescope
 
   - type: signing
