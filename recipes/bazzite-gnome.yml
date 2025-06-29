@@ -43,7 +43,7 @@ modules:
       - btrfs-progs
       - gamemode
 
-    remove:
-      # - ptyxis # Default Bazzite Terminal.
+    # remove:
+    #   - ptyxis # Default Bazzite Terminal.
 
   - type: signing
