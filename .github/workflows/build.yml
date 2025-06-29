@@ -26,6 +26,7 @@ jobs:
         recipe:
           - cosmic.yml
           - bazzite.yml
+          - bazzite-gnome.yml
           - bazzite-deck.yml
     steps:
       - name: Build Custom Image
