@@ -18,7 +18,10 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
 
     install:
+      # AMDGPU
       - corectrl
+
+      # Terminal
       - alacritty
 
       - nu
@@ -31,18 +34,28 @@ modules:
       - yazi
       - btop
       
+      # Virtualization
       - qemu
       - edk2-ovmf
       - virt-manager
       - virt-viewer
-      
+
+      # Streaming
       - obs-studio
 
+      # Compositor and friends.
       - niri
+      - nautilus
+      - sushi
+
+      # Disks
       - gdisk
       - btrfs-progs
 
+      # Android
       - waydroid
+
+      # Microcompositors & Gaming
       - gamescope
       - gamemode
 
