@@ -20,6 +20,8 @@ modules:
     install:
       - corectrl
       - alacritty
+      - ghostty
+      - gnome-shell-extension-pop-shell
 
       - nu
       - dash
