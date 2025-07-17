@@ -24,7 +24,7 @@ modules:
   - type: copy
     from: cosmic-ext-extra-sessions
     src: /usr/local/share/wayland-sessions/cosmic-ext-niri.desktop
-    dest: /usr/local/share/wayland-sessions/cosmic-ext-niri.desktop
+    dest: /usr/share/wayland-sessions/cosmic-ext-niri.desktop
 
   - type: copy
     from: cosmic-ext-extra-sessions
