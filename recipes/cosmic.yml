@@ -15,11 +15,12 @@ stages:
           - git -C cosmic-ext-extra-sessions submodule update --init
           - cargo install just
           - cd cosmic-ext-extra-sessions && just build && just install-niri
+          - sed -i 's|/usr/local/bin/start-cosmic-ext-niri|/usr/bin/start-cosmic-ext-niri|g' /usr/local/share/wayland-sessions/cosmic-ext-niri.desktop
 modules:
   - type: copy
     from: cosmic-ext-extra-sessions
     src: /usr/local/bin/cosmic-ext-alternative-startup
-    dest: /usr/local/bin/cosmic-ext-alternative-startup
+    dest: /usr/bin/cosmic-ext-alternative-startup
 
   - type: copy
     from: cosmic-ext-extra-sessions
@@ -29,7 +30,7 @@ modules:
   - type: copy
     from: cosmic-ext-extra-sessions
     src: /usr/local/bin/start-cosmic-ext-niri
-    dest: /usr/local/bin/start-cosmic-ext-niri
+    dest: /usr/bin/start-cosmic-ext-niri
 
   - type: files
     files:
