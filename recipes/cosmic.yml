@@ -5,7 +5,34 @@ description: cosmic-atomic-main with modifications.
 base-image: ghcr.io/ublue-os/cosmic-atomic-main
 image-version: latest
 
+stages:
+  - name: cosmic-ext-extra-sessions
+    from: docker.io/library/rust
+    modules:
+      - type: script
+        snippets:
+          - apt-get update && apt-get install -y git just
+          - git clone https://github.com/Drakulix/cosmic-ext-extra-sessions.git
+          - cd cosmic-ext-extra-sessions
+          - git submodule update --init
+          - just build
+          - mkdir -p /out/ && mv target/release/cosmic-ext-alternative-startup /out/ && mv niri/cosmic-ext-niri.desktop /out/ && mv niri/start-cosmic-ext-niri /out
 modules:
+  - type: copy
+    from: cosmic-ext-extra-sessions
+    src: /out/cosmic-ext-alternative-startup
+    dest: /usr/local/bin/cosmic-ext-alternative-startup
+
+  - type: copy
+    from: cosmic-ext-extra-sessions
+    src: /out/cosmic-ext-niri.desktop
+    dest: /usr/share/wayland-sessions/cosmic-ext-niri.desktop
+
+  - type: copy
+    from: cosmic-ext-extra-sessions
+    src: /out/start-cosmic-ext-niri
+    dest: /usr/local/bin/start-cosmic-ext-niri
+
   - type: files
     files:
       - source: system
@@ -58,5 +85,12 @@ modules:
       # Microcompositors & Gaming
       - gamescope
       - gamemode
+      # Looking for Steam, Lutris, etc? Try
+      #   distrobox create --name gaming --image ghcr.io/ublue-os/bazzite-arch
+      #   distrobox enter gaming"
+      # 
+      # Gamescope needs to be installed on the host so it's in the image for that reason.
+      # If you want a more complete gaming experence consider rebasing to one of the bazzite images.
+      # https://github.com/BillyAddlers/stellarite looks cool too!
 
   - type: signing
