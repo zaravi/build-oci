@@ -15,7 +15,7 @@ stages:
           - git clone https://github.com/Drakulix/cosmic-ext-extra-sessions.git
           - git -C cosmic-ext-extra-sessions submodule update --init
           - cargo install just
-          - cd cosmic-ext-extra-sessions && just build && just install
+          - cd cosmic-ext-extra-sessions && just build && just install-niri
 modules:
   - type: copy
     from: cosmic-ext-extra-sessions
