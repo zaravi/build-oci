@@ -15,22 +15,21 @@ stages:
           - git clone https://github.com/Drakulix/cosmic-ext-extra-sessions.git
           - git -C cosmic-ext-extra-sessions submodule update --init
           - cargo install just
-          - cd cosmic-ext-extra-sessions && just build
-          - cd cosmic-ext-extra-sessions && mkdir -p /out/ && mv cosmic-ext-alternative-startup/target/release/cosmic-ext-alternative-startup /out/ && mv niri/cosmic-ext-niri.desktop /out/ && mv niri/start-cosmic-ext-niri /out
+          - cd cosmic-ext-extra-sessions && just build && just install
 modules:
   - type: copy
     from: cosmic-ext-extra-sessions
-    src: /out/cosmic-ext-alternative-startup
+    src: /usr/local/bin/cosmic-ext-alternative-startup
     dest: /usr/local/bin/cosmic-ext-alternative-startup
 
   - type: copy
     from: cosmic-ext-extra-sessions
-    src: /out/cosmic-ext-niri.desktop
+    src: /usr/share/wayland-sessions/cosmic-ext-niri.desktop
     dest: /usr/share/wayland-sessions/cosmic-ext-niri.desktop
 
   - type: copy
     from: cosmic-ext-extra-sessions
-    src: /out/start-cosmic-ext-niri
+    src: /usr/local/bin/start-cosmic-ext-niri
     dest: /usr/local/bin/start-cosmic-ext-niri
 
   - type: files
