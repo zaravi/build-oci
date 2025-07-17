@@ -11,7 +11,6 @@ stages:
     modules:
       - type: script
         snippets:
-          - apt-get update && apt-get install -y git
           - git clone https://github.com/Drakulix/cosmic-ext-extra-sessions.git
           - git -C cosmic-ext-extra-sessions submodule update --init
           - cargo install just
@@ -24,8 +23,8 @@ modules:
 
   - type: copy
     from: cosmic-ext-extra-sessions
-    src: /usr/share/wayland-sessions/cosmic-ext-niri.desktop
-    dest: /usr/share/wayland-sessions/cosmic-ext-niri.desktop
+    src: /usr/local/share/wayland-sessions/cosmic-ext-niri.desktop
+    dest: /usr/local/share/wayland-sessions/cosmic-ext-niri.desktop
 
   - type: copy
     from: cosmic-ext-extra-sessions
