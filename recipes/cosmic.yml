@@ -11,10 +11,11 @@ stages:
     modules:
       - type: script
         snippets:
-          - apt-get update && apt-get install -y git just
+          - apt-get update && apt-get install -y git
           - git clone https://github.com/Drakulix/cosmic-ext-extra-sessions.git
           - cd cosmic-ext-extra-sessions
           - git submodule update --init
+          - cargo install just
           - just build
           - mkdir -p /out/ && mv target/release/cosmic-ext-alternative-startup /out/ && mv niri/cosmic-ext-niri.desktop /out/ && mv niri/start-cosmic-ext-niri /out
 modules:
