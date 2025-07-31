@@ -37,105 +37,61 @@ modules:
       - source: system
         destination: /
 
+
   - type: script
     snippets:
-      - |
-        for copr in \
-            atim/starship \
-            lihaohong/yazi \
-            yalter/niri-git; \
-        do \
-            echo "Enabling copr: $copr"; \
-            dnf copr enable -y $copr; \
-        done
-      - |
-        dnf install -y \
-          https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
-          https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-      - |
-        dnf install -y \
-          corectrl \
-          alacritty \
-          nu \
-          dash \
-          starship \
-          atuin \
-          zoxide \
-          helix \
-          yazi \
-          btop \
-          qemu \
-          edk2-ovmf \
-          virt-manager \
-          virt-viewer \
-          obs-studio \
-          niri \
-          nautilus \
-          sushi \
-          gdisk \
-          btrfs-progs \
-          waydroid \
-          steam \
-          gamescope \
-          gamemode
+      - dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-  # - type: rpm-ostree
-  #   repos:
-  #     - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-  #     - https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-%OS_VERSION%/lihaohong-yazi-fedora-%OS_VERSION%.repo
-  #     - https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
+  - type: script
+    snippets:
+      - dnf install -y steam
 
-  #   install:
-  #     - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
-  #     - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-%OS_VERSION%/lihaohong-yazi-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
 
-  #     # AMDGPU
-  #     - corectrl
+    install:
+      # AMDGPU
+      - corectrl
 
-  #     # Terminal
-  #     - alacritty
+      # Terminal
+      - alacritty
 
-  #     - nu
-  #     - dash
-  #     - starship
-  #     - atuin
-  #     - zoxide
+      - nu
+      - dash
+      - starship
+      - atuin
+      - zoxide
 
-  #     - helix
-  #     - yazi
-  #     - btop
+      - helix
+      - yazi
+      - btop
       
-  #     # Virtualization
-  #     - qemu
-  #     - edk2-ovmf
-  #     - virt-manager
-  #     - virt-viewer
+      # Virtualization
+      - qemu
+      - edk2-ovmf
+      - virt-manager
+      - virt-viewer
 
-  #     # Streaming
-  #     - obs-studio
+      # Streaming
+      - obs-studio
 
-  #     # Compositor and friends.
-  #     - niri
-  #     - nautilus
-  #     - sushi
+      # Compositor and friends.
+      - niri
+      - nautilus
+      - sushi
 
-  #     # Disks
-  #     - gdisk
-  #     - btrfs-progs
+      # Disks
+      - gdisk
+      - btrfs-progs
 
-  #     # Android
-  #     - waydroid
+      # Android
+      - waydroid
 
-  #     # Microcompositors & Gaming
-  #     - steam
-  #     - gamescope
-  #     - gamemode
-  #     # Looking for Lutris, etc? Try
-  #     #   distrobox create --name gaming --image ghcr.io/ublue-os/bazzite-arch
-  #     #   distrobox enter gaming"
-  #     # 
-  #     # Gamescope needs to be installed on the host so it's in the image for that reason.
-  #     # If you want a more complete gaming experence consider rebasing to one of the bazzite images.
-  #     # https://github.com/BillyAddlers/stellarite looks cool too!
+      # Microcompositors & Gaming
+      - gamescope
+      - gamemode
 
   - type: signing
