@@ -1,0 +1,64 @@
+---
+name: kinoite
+description: kinoite-main with modifications.
+    
+base-image: ghcr.io/ublue-os/kinoite-main
+image-version: latest
+
+modules:
+  - type: files
+    files:
+      - source: system
+        destination: /
+
+  - type: script
+
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-%OS_VERSION%/lihaohong-yazi-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
+
+    install:
+      # AMDGPU
+      - corectrl
+
+      # Terminal
+      - alacritty
+
+      - nu
+      - dash
+      - starship
+      - atuin
+      - zoxide
+
+      - helix
+      - yazi
+      - btop
+      
+      # Virtualization
+      - qemu
+      - edk2-ovmf
+      - virt-manager
+      - virt-viewer
+
+      # Streaming
+      - obs-studio
+
+      # Compositor and friends.
+      - niri
+      # - nautilus
+      # - sushi
+
+      # Disks
+      - gdisk
+      - btrfs-progs
+
+      # Android
+      - waydroid
+
+      # Microcompositors & Gaming
+      - gamescope
+      - gamemode
+
+  - type: signing
