@@ -25,6 +25,7 @@ jobs:
       matrix:
         recipe:
           - cosmic.yml
+          - kinoite.yml
           - bazzite.yml
           - bazzite-gnome.yml
           - bazzite-deck.yml
