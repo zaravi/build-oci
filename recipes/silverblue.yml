@@ -1,0 +1,40 @@
+---
+name: bluefin-dx-nvidia-open
+description: bluefin-dx-nvidia-open.
+    
+base-image: ghcr.io/ublue-os/bluefin-dx-nvidia-open
+image-version: latest
+
+modules:
+  - type: files
+    files:
+      - source: system
+        destination: /
+
+  - type: script
+
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
+
+    install:
+      - niri
+      - ghostty
+      - nu
+      - dash
+      - starship
+      - atuin
+      - zoxide
+      - helix
+      - yazi
+      
+      - qemu
+      - edk2-ovmf
+      - virt-manager
+      - virt-viewer
+
+      # Streaming
+      - obs-studio
+
+
+  - type: signing
