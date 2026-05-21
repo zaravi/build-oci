@@ -19,14 +19,11 @@ modules:
 
     install:
       - niri
-      - ghostty
       - nu
       - dash
-      - starship
       - atuin
       - zoxide
       - helix
-      - yazi
       
       - qemu
       - edk2-ovmf
