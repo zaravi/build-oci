@@ -45,15 +45,6 @@ modules:
     remove:
       - vscode
       - gnome-terminal
-      - gnome-maps
-      - gnome-contacts
-      - gnome-weather
-      - gnome-calculator
-      - gnome-calendar
-      - gnome-clocks
-      - gnome-tour
-      - gnome-connections
-      - gnome-camera
       - malcontent
 
   - type: signing
