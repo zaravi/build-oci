@@ -45,6 +45,5 @@ modules:
     remove:
       - vscode
       - malcontent
-      - alacritty # i will always love you <3
 
   - type: signing
