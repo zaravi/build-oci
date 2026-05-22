@@ -44,7 +44,7 @@ modules:
       - obs-studio
     remove:
       - vscode
-      - gnome-terminal
       - malcontent
+      - alacritty # i will always love you <3
 
   - type: signing
