@@ -38,7 +38,6 @@ modules:
 
       - gnome-shell-extension-pop-shell
       - gnome-shell-extension-just-perfection
-      - gnome-shell-extension-hot-edge
 
       # - qemu
       # - edk2-ovmf
@@ -48,6 +47,7 @@ modules:
       - obs-studio
     remove:
       - code
+      #   - ptyxis # Default Bazzite Terminal.
       - malcontent
 
   - type: signing
