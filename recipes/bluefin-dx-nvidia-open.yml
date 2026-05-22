@@ -1,7 +1,7 @@
 ---
 name: bluefin-dx-nvidia-open
 description: bluefin-dx-nvidia-open.
-    
+
 base-image: ghcr.io/ublue-os/bluefin-dx-nvidia-open
 image-version: latest
 
@@ -16,12 +16,10 @@ modules:
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-%OS_VERSION%/lihaohong-yazi-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-%OS_VERSION%/scottames-ghostty-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/zhangyi6324/noctalia-shell/repo/fedora-%OS_VERSION%/zhangyi6324-noctalia-shell-fedora-%OS_VERSION%.repo
       - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-      - https://terra.gpdm.dev/terra.repo
 
     keys:
       - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
@@ -34,21 +32,28 @@ modules:
 
       - nu
       - dash
-      - starship
-      - yazi
-      - atuin
-      - zoxide
-      - helix
-      
+
       - zen-browser
       - brave-browser
-      
-      - qemu
-      - edk2-ovmf
-      - virt-manager
-      - virt-viewer
+
+      # - qemu
+      # - edk2-ovmf
+      # - virt-manager
+      # - virt-viewer
 
       - obs-studio
-
+    remove:
+      - vscode
+      - gnome-terminal
+      - gnome-maps
+      - gnome-contacts
+      - gnome-weather
+      - gnome-calculator
+      - gnome-calendar
+      - gnome-clocks
+      - gnome-tour
+      - gnome-connections
+      - gnome-camera
+      - malcontent
 
   - type: signing
