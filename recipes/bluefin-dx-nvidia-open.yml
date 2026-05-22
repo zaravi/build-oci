@@ -36,6 +36,10 @@ modules:
       - zen-browser
       - brave-browser
 
+      - gnome-shell-extension-pop-shell
+      - gnome-shell-extension-just-perfection
+      - gnome-shell-extension-hot-edge
+
       # - qemu
       # - edk2-ovmf
       # - virt-manager
@@ -43,7 +47,7 @@ modules:
 
       - obs-studio
     remove:
-      - vscode
+      - code
       - malcontent
 
   - type: signing
