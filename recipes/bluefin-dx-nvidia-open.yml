@@ -41,7 +41,7 @@ modules:
       - gnome-shell-extension-pop-shell
       - gnome-shell-extension-just-perfection
 
-      - obs-studio
+      # - obs-studio
 
     remove:
       - code
