@@ -20,11 +20,13 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo
       # - https://copr.fedorainfracloud.org/coprs/zhangyi6324/noctalia-shell/repo/fedora-%OS_VERSION%/zhangyi6324-noctalia-shell-fedora-%OS_VERSION%.repo
       - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+      - https://repository.mullvad.net/rpm/stable/mullvad.repo
 
     keys:
       - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     optfix:
       - brave.com
+      - Mullvad VPN
     install:
       - niri
       - ghostty
@@ -34,6 +36,7 @@ modules:
 
       - zen-browser
       - brave-browser
+      - mullvad-vpn
 
       - gnome-shell-extension-pop-shell
       - gnome-shell-extension-just-perfection
@@ -43,10 +46,6 @@ modules:
     remove:
       - code
       - ptyxis
-      # - gnome-shell-extension-dash-to-dock
       - gnome-classic-session
-      # - gnome-shell-extension-apps-menu
-      # - gnome-shell-extension-places-menu
-      # - gnome-shell-extension-window-list
 
   - type: signing
