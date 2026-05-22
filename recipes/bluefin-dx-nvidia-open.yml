@@ -48,7 +48,5 @@ modules:
     remove:
       - code
       #   - ptyxis # Default Bazzite Terminal.
-      - malcontent
-      - malcontent-control
 
   - type: signing
