@@ -30,7 +30,6 @@ modules:
       - ghostty
       # - noctalia-shell
 
-      - nu
       - dash
 
       - zen-browser
@@ -39,14 +38,14 @@ modules:
       - gnome-shell-extension-pop-shell
       - gnome-shell-extension-just-perfection
 
-      # - qemu
-      # - edk2-ovmf
-      # - virt-manager
-      # - virt-viewer
-
       - obs-studio
+
     remove:
       - code
-      #   - ptyxis # Default Bazzite Terminal.
+      - ptyxis
+      - gnome-shell-extension-dash-to-dock
+      - gnome-shell-extension-apps-menu
+      - gnome-shell-extension-places-menu
+      - gnome-shell-extension-window-list
 
   - type: signing
