@@ -44,8 +44,9 @@ modules:
       - code
       - ptyxis
       # - gnome-shell-extension-dash-to-dock
-      - gnome-shell-extension-apps-menu
-      - gnome-shell-extension-places-menu
-      - gnome-shell-extension-window-list
+      - gnome-classic-session
+      # - gnome-shell-extension-apps-menu
+      # - gnome-shell-extension-places-menu
+      # - gnome-shell-extension-window-list
 
   - type: signing
