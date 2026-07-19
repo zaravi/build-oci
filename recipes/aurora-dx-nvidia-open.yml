@@ -45,7 +45,7 @@ modules:
 
     remove:
       - code
-      - ptyxis
+      # - ptyxis
       # - gnome-classic-session
 
   - type: signing
