@@ -1,0 +1,51 @@
+---
+name: aurora-dx-nvidia-open
+description: aurora-dx-nvidia-open.
+
+base-image: ghcr.io/ublue-os/aurora-dx-nvidia-open
+image-version: latest
+
+modules:
+  - type: files
+    files:
+      - source: system
+        destination: /
+
+  - type: script
+
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-%OS_VERSION%/scottames-ghostty-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo
+      # - https://copr.fedorainfracloud.org/coprs/zhangyi6324/noctalia-shell/repo/fedora-%OS_VERSION%/zhangyi6324-noctalia-shell-fedora-%OS_VERSION%.repo
+      - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+      - https://repository.mullvad.net/rpm/stable/mullvad.repo
+
+    keys:
+      - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+    optfix:
+      - brave.com
+      - Mullvad VPN
+    install:
+      - niri
+      - ghostty
+      # - noctalia-shell
+
+      - dash
+
+      - zen-browser
+      - brave-browser
+      - mullvad-vpn
+
+      # - gnome-shell-extension-pop-shell
+      # - gnome-shell-extension-just-perfection
+
+      # - obs-studio
+
+    remove:
+      - code
+      - ptyxis
+      # - gnome-classic-session
+
+  - type: signing
