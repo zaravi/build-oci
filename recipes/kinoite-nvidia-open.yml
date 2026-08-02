@@ -16,33 +16,41 @@ modules:
   - type: dnf
     repos:
       files:
+        - https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-%OS_VERSION%/scottames-ghostty-fedora-%OS_VERSION%.repo
         - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
         - https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-%OS_VERSION%/lihaohong-yazi-fedora-%OS_VERSION%.repo
-        - https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
+        - https://repository.mullvad.net/rpm/stable/mullvad.repo
         - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo
         - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-        - https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-%OS_VERSION%/scottames-ghostty-fedora-%OS_VERSION%.repo
-        - https://repository.mullvad.net/rpm/stable/mullvad.repo
+        - https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
+        - https://copr.fedorainfracloud.org/coprs/zhangyi6324/noctalia-shell/repo/fedora-%OS_VERSION%/zhangyi6324-noctalia-shell-fedora-%OS_VERSION%.repo
       keys:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     install:
       packages:
-        # AMDGPU
-        # - corectrl
-
-        # Terminal
-        # - alacritty
+        # Terminal Emulators
+        - alacritty
         - ghostty
 
+        # Shell
         - nu
         - dash
         - starship
         - atuin
         - zoxide
 
+        # TUI
         - helix
         - yazi
         - btop
+        - gdisk
+        - btrfs-progs
+
+        # Web
+        - mullvad-vpn
+        - mullvad-browser
+        - zen-browser
+        - brave-browser
 
         # Virtualization
         - qemu
@@ -53,23 +61,14 @@ modules:
         # Streaming
         - obs-studio
 
-        # Compositor and friends.
+        # Compositors, Shells & Extra
         - niri
-        # - nautilus
-        # - sushi
-
-        - mullvad-vpn
-        - mullvad-browser
-
-        # Disks
-        - gdisk
-        - btrfs-progs
-
-        # Android
+        - noctalia-shell
         - waydroid
-
-        # Microcompositors & Gaming
         - gamescope
         - gamemode
+    remove:
+      packages:
+        - firefox
 
   - type: signing
