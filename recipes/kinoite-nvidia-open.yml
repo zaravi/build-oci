@@ -64,7 +64,6 @@ modules:
         # Compositors, Shells & Extra
         - niri
         - noctalia-shell
-        - waydroid
         - gamescope
         - gamemode
     remove:
