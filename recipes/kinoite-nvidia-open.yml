@@ -58,8 +58,8 @@ modules:
         # - nautilus
         # - sushi
 
-        mullvad-vpn
-        mullvad-browser
+        - mullvad-vpn
+        - mullvad-browser
 
         # Disks
         - gdisk
