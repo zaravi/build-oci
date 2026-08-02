@@ -23,6 +23,7 @@ modules:
         - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo
         - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
         - https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
+        - https://copr.fedorainfracloud.org/coprs/infinality/kwin-effects-better-blur-dx/repo/fedora-%OS_VERSION%/infinality-kwin-effects-better-blur-dx-fedora-%OS_VERSION%.repo
       keys:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     install:
@@ -65,6 +66,12 @@ modules:
         - noctalia
         - gamescope
         - gamemode
+
+        # Extra Plasma Stuff
+        - plasma-oxygen
+        - oxygen-icon-theme
+        - kwin-effects-better-blur-dx
+
     remove:
       packages:
         - firefox
