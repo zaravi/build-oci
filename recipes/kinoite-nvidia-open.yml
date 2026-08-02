@@ -1,8 +1,8 @@
 ---
-name: kinoite
+name: kinoite-nvidia-open
 description: kinoite-main with modifications.
 
-base-image: ghcr.io/blue-build/base-images/fedora-kinoite
+base-image: ghcr.io/blue-build/base-images/fedora-kinoite-nvidia-open
 image-version: latest
 
 modules:
