@@ -23,7 +23,6 @@ modules:
         - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo
         - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
         - https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
-        - https://copr.fedorainfracloud.org/coprs/zhangyi6324/noctalia-shell/repo/fedora-%OS_VERSION%/zhangyi6324-noctalia-shell-fedora-%OS_VERSION%.repo
       keys:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     install:
@@ -66,8 +65,7 @@ modules:
 
         # Compositors, Shells & Extra
         - niri
-        - noctalia-qs
-        - noctalia-shell
+        - noctalia
         - waydroid
         - gamescope
         - gamemode
