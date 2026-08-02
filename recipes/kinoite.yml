@@ -66,6 +66,7 @@ modules:
 
         # Compositors, Shells & Extra
         - niri
+        - noctalia-qs
         - noctalia-shell
         - waydroid
         - gamescope

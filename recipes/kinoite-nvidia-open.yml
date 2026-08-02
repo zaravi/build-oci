@@ -63,6 +63,7 @@ modules:
 
         # Compositors, Shells & Extra
         - niri
+        - noctalia-qs
         - noctalia-shell
         - gamescope
         - gamemode
