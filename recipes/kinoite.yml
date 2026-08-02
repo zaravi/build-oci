@@ -1,8 +1,8 @@
 ---
 name: kinoite
 description: kinoite-main with modifications.
-    
-base-image: ghcr.io/ublue-os/kinoite-main
+
+base-image: ghcr.io/fedora/kinoite
 image-version: latest
 
 modules:
@@ -35,7 +35,7 @@ modules:
       - helix
       - yazi
       - btop
-      
+
       # Virtualization
       - qemu
       - edk2-ovmf
