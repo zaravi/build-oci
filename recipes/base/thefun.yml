@@ -24,9 +24,7 @@ modules:
             "*terra*".exclude="nerd-fonts scx-tools scx-scheds python3-protobuf zlib-devel uupd" && \
         dnf5 -y config-manager setopt "terra-mesa".enabled=false && \
         dnf5 -y config-manager setopt \
-            "*fedora*".exclude="mesa-* steam" && \
-        dnf5 -y config-manager setopt \
-            "*negativo17*".exclude="mesa-*"
+            "*fedora*".exclude="mesa-* steam"
 
   # Install Valve's patched Mesa, Bluez, and Xwayland
   - type: script
