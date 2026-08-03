@@ -2,8 +2,8 @@
 name: kinoite-nvidia-open
 description: kinoite-main with modifications.
 
-base-image: ghcr.io/blue-build/base-images/fedora-kinoite-nvidia-open
-image-version: latest
+base-image: quay.io/fedora-ostree-desktops/kinoite
+image-version: 44
 stages:
   - name: better-blur-dx
     from: quay.io/fedora-ostree-desktops/kinoite:44
@@ -49,6 +49,18 @@ stages:
             cp kwin-better-blur-dx.rpm /output/
 
 modules:
+  - from-file: base/common.yml
+
+  - from-file: base/kinoite.yml
+
+  - from-file: base/nvidia.yml
+
+  - type: os-release
+    properties:
+      PRETTY_NAME: BlueBuild OS for Nvidia - Kinoite (FROM Fedora Kinoite)
+
+  - from-file: base/post-build.yml
+
   - type: files
     files:
       - source: system
