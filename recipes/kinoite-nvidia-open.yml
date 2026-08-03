@@ -6,7 +6,7 @@ base-image: ghcr.io/blue-build/base-images/fedora-kinoite-nvidia-open
 image-version: latest
 stages:
   - name: better-blur-dx
-    from: quay.io/fedora-ostree-desktops/kinoite
+    from: quay.io/fedora-ostree-desktops/kinoite:44
     modules:
       - type: dnf
         install:
