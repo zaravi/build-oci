@@ -1,0 +1,169 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  # Setup Copr repos
+  - type: script
+    snippets:
+      - |
+        set -euo pipefail && \
+        OS_VERSION=$(rpm -E %fedora) && \
+        dnf5 config-manager setopt keepcache=1 && \
+        for copr in \
+            ublue-os/bazzite \
+            ublue-os/bazzite-multilib; \
+        do \
+            echo "Enabling copr: $copr"; \
+            dnf5 -y copr enable $copr; \
+            dnf5 -y config-manager setopt copr:copr.fedorainfracloud.org:${copr////:}.priority=2 ;\
+        done && unset -v copr && \
+        dnf5 -y install --nogpgcheck \
+            --repofrompath "terra,https://repos.fyralabs.com/terra${OS_VERSION}" \
+            terra-release{,-extras,-mesa} && \
+        dnf5 -y config-manager setopt \
+            "*terra*".priority=1 \
+            "*terra*".exclude="nerd-fonts scx-tools scx-scheds python3-protobuf zlib-devel uupd" && \
+        dnf5 -y config-manager setopt "terra-mesa".enabled=false && \
+        dnf5 -y config-manager setopt \
+            "*fedora*".exclude="mesa-* steam" && \
+        dnf5 -y config-manager setopt \
+            "*negativo17*".exclude="mesa-*"
+
+  # Install Valve's patched Mesa, Bluez, and Xwayland
+  - type: script
+    snippets:
+      - |
+        set -euo pipefail && \
+        dnf5 -y remove \
+            pipewire-config-raop \
+            mesa-va-drivers && \
+        dnf5 -y swap \
+            --from-repo="copr:copr.fedorainfracloud.org:ublue-os:bazzite" \
+            wireplumber wireplumber \
+            wireplumber-libs wireplumber-libs && \
+        dnf5 -y swap \
+            --from-repo="copr:copr.fedorainfracloud.org:ublue-os:bazzite-multilib" \
+            bluez bluez \
+            bluez-cups bluez-cups \
+            bluez-libs bluez-libs \
+            bluez-obexd bluez-obexd \
+            xorg-x11-server-Xwayland xorg-x11-server-Xwayland && \
+        dnf5 -y swap \
+            --from-repo=terra-mesa \
+            mesa-dri-drivers mesa-dri-drivers \
+            mesa-filesystem mesa-filesystem \
+            mesa-libEGL mesa-libEGL \
+            mesa-libGL mesa-libGL \
+            mesa-libgbm mesa-libgbm \
+            mesa-vulkan-drivers mesa-vulkan-drivers && \
+        dnf5 versionlock add \
+            wireplumber wireplumber-libs \
+            bluez bluez-cups bluez-libs bluez-obexd \
+            xorg-x11-server-Xwayland \
+            mesa-dri-drivers mesa-filesystem mesa-libEGL \
+            mesa-libGL mesa-libgbm mesa-vulkan-drivers && \
+        dnf5 --enable-repo=terra-mesa -y install \
+            mesa-libOpenCL \
+            clinfo
+
+  # Install Steam plus supporting packages
+  - type: script
+    snippets:
+      - |
+        set -euo pipefail && \
+        dnf5 -y install \
+            dmemcg-booster && \
+        dnf5 --enable-repo=terra-mesa --enable-repo=terra -y install \
+            terra-gamescope.x86_64 \
+            terra-gamescope-libs.x86_64 \
+            terra-gamescope-libs.i686 \
+            umu-wrapper \
+            umu-launcher \
+            dbus-x11 \
+            xrandr \
+            xdg-user-dirs \
+            libFAudio.x86_64 \
+            libFAudio.i686 \
+            openxr && \
+        dnf5 -y --enable-repo=terra-mesa --enable-repo=terra \
+            --setopt=install_weak_deps=False install \
+            steam && \
+        dnf5 -y remove \
+            gamemode
+
+  # Build Monado, Envision, and WayVR from source
+  - type: script
+    snippets:
+      - |
+        set -euo pipefail && \
+        dnf5 -y install \
+            git meson ninja-build cmake gcc gcc-c++ cargo rust \
+            libX11-devel libXext-devel libXrandr-devel \
+            libxkbcommon-devel libxkbcommon-x11-devel \
+            fontconfig-devel dbus-devel alsa-lib-devel \
+            libshaderc-devel openssl-devel wayland-devel \
+            libdav1d-devel openvr-devel openxr-devel \
+            pipewire-devel clang vulkan-headers glslc \
+            vulkan-loader-devel eigen3-devel \
+            libusb1-devel systemd-devel libudev-devel libffi-devel \
+            python3-devel glib2-devel cairo-devel pango-devel \
+            gtk4-devel libadwaita-devel libssh2-devel \
+            vte291-gtk4-devel gdk-pixbuf2-devel \
+            libglvnd-devel libdrm-devel \
+            libXNVCtrl-devel libXxf86vm-devel && \
+        git clone \
+            --depth 1 --branch v26.7.1 \
+            https://github.com/wayvr-org/wayvr.git /tmp/wayvr && \
+        cargo build --release --manifest-path /tmp/wayvr/Cargo.toml && \
+        cp /tmp/wayvr/target/release/wayvr /usr/bin/ && \
+        cp /tmp/wayvr/target/release/wayvrctl /usr/bin/ && \
+        rm -rf /tmp/wayvr && \
+        git clone \
+            --depth 1 --branch 3.2.0 \
+            https://gitlab.com/gabmus/envision.git /tmp/envision && \
+        meson setup /tmp/envision/build /tmp/envision \
+            -Dprefix=/usr -Dprofile=release && \
+        ninja -C /tmp/envision/build && \
+        ninja -C /tmp/envision/build install && \
+        rm -rf /tmp/envision && \
+        git clone \
+            --depth 1 \
+            https://gitlab.freedesktop.org/monado/monado.git /tmp/monado && \
+        meson setup /tmp/monado/build /tmp/monado \
+            -Dprefix=/usr --buildtype=release && \
+        ninja -C /tmp/monado/build && \
+        ninja -C /tmp/monado/build install && \
+        rm -rf /tmp/monado && \
+        dnf5 -y remove \
+            meson ninja-build cmake cargo rust clang \
+            libX11-devel libXext-devel libXrandr-devel \
+            libxkbcommon-devel libxkbcommon-x11-devel \
+            fontconfig-devel dbus-devel alsa-lib-devel \
+            libshaderc-devel openssl-devel wayland-devel \
+            libdav1d-devel openvr-devel openxr-devel \
+            pipewire-devel vulkan-headers glslc \
+            vulkan-loader-devel eigen3-devel \
+            libusb1-devel systemd-devel libudev-devel libffi-devel \
+            python3-devel glib2-devel cairo-devel pango-devel \
+            gtk4-devel libadwaita-devel libssh2-devel \
+            vte291-gtk4-devel gdk-pixbuf2-devel \
+            libglvnd-devel libdrm-devel \
+            libXNVCtrl-devel libXxf86vm-devel && \
+        rm -rf /root/.cargo
+
+  # Cleanup & Finalize
+  - type: script
+    snippets:
+      - |
+        set -euo pipefail && \
+        for repo in \
+            terra \
+            terra-extras; \
+        do \
+            sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/$repo.repo; \
+        done && \
+        for copr in \
+            ublue-os/bazzite \
+            ublue-os/bazzite-multilib; \
+        do \
+            dnf5 -y copr disable $copr; \
+        done && unset -v copr

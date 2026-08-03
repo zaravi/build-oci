@@ -8,6 +8,7 @@ modules:
   - from-file: base/common.yml
   - from-file: base/plasma.yml
   - from-file: base/nvidia.yml
+  - from-file: base/thefun.yml
 
   - type: os-release
     properties:
