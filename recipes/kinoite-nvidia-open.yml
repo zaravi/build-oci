@@ -37,14 +37,16 @@ stages:
             - rpm-build
       - type: script
         snippets:
-          - git clone https://github.com/xarblu/kwin-effects-better-blur-dx
-          - cd kwin-effects-better-blur-dx
-          - mkdir build && cd build
-          - cmake .. -DCMAKE_INSTALL_PREFIX=/usr
-          - make -j$(nproc)
-          - cpack -V -G RPM
-          - mkdir -p /output
-          - cp kwin-better-blur-dx.rpm /output/
+          - |
+            set -euo pipefail
+            git clone https://github.com/xarblu/kwin-effects-better-blur-dx
+            cd kwin-effects-better-blur-dx
+            mkdir build && cd build
+            cmake .. -DCMAKE_INSTALL_PREFIX=/usr
+            make -j$(nproc)
+            cpack -V -G RPM
+            mkdir -p /output
+            cp kwin-better-blur-dx.rpm /output/
 
 modules:
   - type: files
