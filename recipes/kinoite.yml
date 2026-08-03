@@ -4,15 +4,14 @@ description: kinoite-main with modifications.
 
 base-image: quay.io/fedora-ostree-desktops/kinoite
 image-version: 44
-
 modules:
   - from-file: base/common.yml
-
-  - from-file: base/kinoite.yml
+  - from-file: base/plasma.yml
+  - from-file: base/amdgpu.yml
 
   - type: os-release
     properties:
-      PRETTY_NAME: BlueBuild OS - Kinoite (FROM Fedora Kinoite)
+      PRETTY_NAME: Zavi OS
 
   - from-file: base/post-build.yml
 
@@ -20,67 +19,5 @@ modules:
     files:
       - source: system
         destination: /
-
-  - type: script
-
-  - type: dnf
-    repos:
-      files:
-        - https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-%OS_VERSION%/scottames-ghostty-fedora-%OS_VERSION%.repo
-        - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-        - https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-%OS_VERSION%/lihaohong-yazi-fedora-%OS_VERSION%.repo
-        - https://repository.mullvad.net/rpm/stable/mullvad.repo
-        - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo
-        - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-        - https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
-      keys:
-        - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-    install:
-      packages:
-        # AMDGPU
-        - corectrl
-
-        # Terminal Emulators
-        - alacritty
-        - ghostty
-
-        # Shell
-        - nu
-        - dash
-        - starship
-        - atuin
-        - zoxide
-
-        # TUI
-        - helix
-        - yazi
-        - btop
-        - gdisk
-        - btrfs-progs
-
-        # Web
-        - mullvad-vpn
-        - mullvad-browser
-        - zen-browser
-        - brave-browser
-
-        # Virtualization
-        - qemu
-        - edk2-ovmf
-        - virt-manager
-        - virt-viewer
-
-        # Streaming
-        - obs-studio
-
-        # Compositors, Shells & Extra
-        - niri
-        - noctalia
-        - waydroid
-        - gamescope
-        - gamemode
-    remove:
-      packages:
-        - firefox
 
   - type: signing

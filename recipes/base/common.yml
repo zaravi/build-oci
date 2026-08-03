@@ -55,7 +55,7 @@ modules:
           - libva-intel-media-driver
           - intel-gmmlib
           - intel-mediasdk
-          
+
   - type: dnf
     install:
       packages:
@@ -89,6 +89,16 @@ modules:
       copr:
         - ublue-os/packages
         - ublue-os/staging
+      files:
+        - https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-%OS_VERSION%/scottames-ghostty-fedora-%OS_VERSION%.repo
+        - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+        - https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-%OS_VERSION%/lihaohong-yazi-fedora-%OS_VERSION%.repo
+        - https://repository.mullvad.net/rpm/stable/mullvad.repo
+        - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo
+        - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+        - https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
+      keys:
+        - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     install:
       skip-unavailable: true
       packages:
@@ -149,6 +159,46 @@ modules:
         - gvfs-smb
         - gvfs-nfs
         - gvfs-mtp
+
+
+        # Terminal Emulators
+        - alacritty
+        - ghostty
+
+        # Shell
+        - nu
+        - dash
+        - starship
+        - atuin
+        - zoxide
+
+        # TUI
+        - helix
+        - yazi
+        - btop
+        - gdisk
+        - btrfs-progs
+
+        # Web
+        - mullvad-vpn
+        - mullvad-browser
+        - zen-browser
+        - brave-browser
+
+        # Virtualization
+        - qemu
+        - edk2-ovmf
+        - virt-manager
+        - virt-viewer
+
+        # Streaming
+        - obs-studio
+
+        # Compositors, Shells & Extra
+        - niri
+        - noctalia
+        - gamescope
+        - gamemode
       exclude:
         - google-noto-sans-cjk-vf-fonts
         - default-fonts-cjk-sans
@@ -158,6 +208,7 @@ modules:
         - fedora-flathub-remote
         - fedora-third-party
         - fedora-workstation-repositories
+        - firefox
     replace:
       # mitigate upstream packaging bug: https://bugzilla.redhat.com/show_bug.cgi?id=2332429
       # swap the incorrectly installed OpenCL-ICD-Loader for ocl-icd, the expected package
@@ -175,7 +226,7 @@ modules:
       # see detail: https://github.com/ublue-os/main/issues/653
       - curl -sSLo ${CSFG} https://raw.githubusercontent.com/coreos/fedora-coreos-config/refs/heads/stable/overlay.d/05core/usr/lib/systemd/system-generators/coreos-sulogin-force-generator
       - chmod +x ${CSFG}
-      # Cleanup Negativo repo 
+      # Cleanup Negativo repo
       - rm -f /etc/yum.repos.d/fedora-negativo17.repo
     scripts:
       - install-appimage-thumbnailer.sh
