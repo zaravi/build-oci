@@ -91,7 +91,7 @@ modules:
         dnf5 -y install \
             dmemcg-booster && \
         dnf5 -y install --nogpgcheck --repofrompath \
-            "negativo17-multimedia,https://negativo17.org/repos/fedora-multimedia/fedora-$(rpm -E %fedora)/x86_64/" \
+            "negativo17-multimedia,https://negativo17.org/repos/multimedia/fedora-$(rpm -E %fedora)/x86_64/" \
             libfdk-aac.i686 && \
         dnf5 --enable-repo=terra-mesa --enable-repo=terra -y install \
             terra-gamescope.x86_64 \
