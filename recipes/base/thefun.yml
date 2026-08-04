@@ -134,7 +134,7 @@ modules:
         git clone \
             --depth 1 --branch v26.7.1 \
             https://github.com/wayvr-org/wayvr.git /tmp/wayvr && \
-        cargo build --release --manifest-path /tmp/wayvr/Cargo.toml && \
+        CMAKE_POLICY_VERSION_MINIMUM=3.5 cargo build --release --manifest-path /tmp/wayvr/Cargo.toml && \
         cp /tmp/wayvr/target/release/wayvr /usr/bin/ && \
         cp /tmp/wayvr/target/release/wayvrctl /usr/bin/ && \
         rm -rf /tmp/wayvr && \
