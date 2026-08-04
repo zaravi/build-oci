@@ -149,12 +149,12 @@ modules:
         ninja -C /tmp/envision/build install && \
         rm -rf /tmp/envision && \
         git clone \
-            --depth 1 \
+            --depth 1 --branch main \
             https://gitlab.freedesktop.org/monado/monado.git /tmp/monado && \
-        meson setup /tmp/monado/build /tmp/monado \
-            -Dprefix=/usr --buildtype=release && \
-        ninja -C /tmp/monado/build && \
-        ninja -C /tmp/monado/build install && \
+        cmake -B /tmp/monado/build -S /tmp/monado \
+            -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release && \
+        cmake --build /tmp/monado/build && \
+        cmake --install /tmp/monado/build && \
         rm -rf /tmp/monado && \
         dnf5 -y remove \
             meson ninja-build cmake cargo rust clang \
