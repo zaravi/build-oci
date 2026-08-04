@@ -130,7 +130,7 @@ modules:
             gtk4-devel libadwaita-devel libssh2-devel \
             vte291-gtk4-devel gdk-pixbuf2-devel \
             libglvnd-devel libdrm-devel \
-            libXNVCtrl-devel libXxf86vm-devel && \
+            libXxf86vm-devel && \
         git clone \
             --depth 1 --branch v26.7.1 \
             https://github.com/wayvr-org/wayvr.git /tmp/wayvr && \
@@ -168,7 +168,7 @@ modules:
             gtk4-devel libadwaita-devel libssh2-devel \
             vte291-gtk4-devel gdk-pixbuf2-devel \
             libglvnd-devel libdrm-devel \
-            libXNVCtrl-devel libXxf86vm-devel && \
+            libXxf86vm-devel && \
         rm -rf /root/.cargo
 
   # Cleanup & Finalize
