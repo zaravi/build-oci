@@ -123,7 +123,7 @@ modules:
             fontconfig-devel dbus-devel alsa-lib-devel \
             libshaderc-devel openssl-devel wayland-devel \
             libdav1d-devel openvr-devel openxr-devel \
-            pipewire-devel clang vulkan-headers glslc \
+            pipewire-devel clang vulkan-headers glslc glslang \
             vulkan-loader-devel eigen3-devel \
             libusb1-devel systemd-devel libudev-devel libffi-devel \
             python3-devel glib2-devel cairo-devel pango-devel \
@@ -163,7 +163,7 @@ modules:
             fontconfig-devel dbus-devel alsa-lib-devel \
             libshaderc-devel openssl-devel wayland-devel \
             libdav1d-devel openvr-devel openxr-devel \
-            pipewire-devel vulkan-headers glslc \
+            pipewire-devel vulkan-headers glslc glslang \
             vulkan-loader-devel eigen3-devel \
             libusb1-devel systemd-devel libudev-devel libffi-devel \
             python3-devel glib2-devel cairo-devel pango-devel \
