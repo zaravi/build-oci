@@ -36,22 +36,42 @@ modules:
             mesa-va-drivers && \
         dnf5 -y swap \
             --from-repo="copr:copr.fedorainfracloud.org:ublue-os:bazzite" \
-            wireplumber wireplumber \
+            wireplumber wireplumber && \
+        dnf5 -y swap \
+            --from-repo="copr:copr.fedorainfracloud.org:ublue-os:bazzite" \
             wireplumber-libs wireplumber-libs && \
         dnf5 -y swap \
             --from-repo="copr:copr.fedorainfracloud.org:ublue-os:bazzite-multilib" \
-            bluez bluez \
-            bluez-cups bluez-cups \
-            bluez-libs bluez-libs \
-            bluez-obexd bluez-obexd \
+            bluez bluez && \
+        dnf5 -y swap \
+            --from-repo="copr:copr.fedorainfracloud.org:ublue-os:bazzite-multilib" \
+            bluez-cups bluez-cups && \
+        dnf5 -y swap \
+            --from-repo="copr:copr.fedorainfracloud.org:ublue-os:bazzite-multilib" \
+            bluez-libs bluez-libs && \
+        dnf5 -y swap \
+            --from-repo="copr:copr.fedorainfracloud.org:ublue-os:bazzite-multilib" \
+            bluez-obexd bluez-obexd && \
+        dnf5 -y swap \
+            --from-repo="copr:copr.fedorainfracloud.org:ublue-os:bazzite-multilib" \
             xorg-x11-server-Xwayland xorg-x11-server-Xwayland && \
         dnf5 -y swap \
             --from-repo=terra-mesa \
-            mesa-dri-drivers mesa-dri-drivers \
-            mesa-filesystem mesa-filesystem \
-            mesa-libEGL mesa-libEGL \
-            mesa-libGL mesa-libGL \
-            mesa-libgbm mesa-libgbm \
+            mesa-dri-drivers mesa-dri-drivers && \
+        dnf5 -y swap \
+            --from-repo=terra-mesa \
+            mesa-filesystem mesa-filesystem && \
+        dnf5 -y swap \
+            --from-repo=terra-mesa \
+            mesa-libEGL mesa-libEGL && \
+        dnf5 -y swap \
+            --from-repo=terra-mesa \
+            mesa-libGL mesa-libGL && \
+        dnf5 -y swap \
+            --from-repo=terra-mesa \
+            mesa-libgbm mesa-libgbm && \
+        dnf5 -y swap \
+            --from-repo=terra-mesa \
             mesa-vulkan-drivers mesa-vulkan-drivers && \
         dnf5 versionlock add \
             wireplumber wireplumber-libs \
