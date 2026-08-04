@@ -134,6 +134,8 @@ modules:
         git clone \
             --depth 1 --branch v26.7.1 \
             https://github.com/wayvr-org/wayvr.git /tmp/wayvr && \
+        CMAKE_POLICY_VERSION_MINIMUM=3.5 cargo fetch --manifest-path /tmp/wayvr/Cargo.toml && \
+        find /root/.cargo/registry/src -name "SpvBuilder.h" -path "*/shaderc-sys-*" -exec sed -i '1i#include <cstdint>' {} \; && \
         CMAKE_POLICY_VERSION_MINIMUM=3.5 cargo build --release --manifest-path /tmp/wayvr/Cargo.toml && \
         cp /tmp/wayvr/target/release/wayvr /usr/bin/ && \
         cp /tmp/wayvr/target/release/wayvrctl /usr/bin/ && \
