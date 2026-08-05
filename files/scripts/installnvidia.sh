@@ -36,8 +36,9 @@ curl -fLsS --retry 5 -o "/etc/yum.repos.d/${nvidia_repo}.repo" "https://negativo
 #################################
 # Kernel module
 #################################
-dnf install -y --setopt=install_weak_deps=False "kernel-devel-matched-$(rpm -q 'kernel' --queryformat '%{VERSION}-%{RELEASE}')"
-
+dnf update -y kernel
+KERNEL_VERSION="$(rpm -q "kernel" --queryformat '%{VERSION}-%{RELEASE}.%{ARCH}')"
+dnf install -y --setopt=install_weak_deps=False "kernel-devel-${KERNEL_VERSION}"
 dnf install -y --setopt=install_weak_deps=False akmods gcc-c++
 
 cp /usr/sbin/akmodsbuild /usr/sbin/akmodsbuild.backup
