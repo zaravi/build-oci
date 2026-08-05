@@ -12,7 +12,7 @@ modules:
 
   - type: os-release
     properties:
-      PRETTY_NAME: Zavi OS
+      PRETTY_NAME: Chi OS
 
   - from-file: base/post-build.yml
 
