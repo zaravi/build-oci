@@ -3,11 +3,32 @@
 #
 # This file is mostly just copying Bazzite's homework directly from the containerfile.
 modules:
-  # Install Envision rundime dependancies
+  # Install Envision runtime & build dependancies
   - type: dnf
     install:
       packages:
         - vte291-gtk4
+        - cmake
+        - eigen3-devel
+        - glslang-devel
+        - glslc
+        - libbsd-devel
+        - libdrm-devel
+        - mesa-libGL-devel
+        - systemd-devel
+        - libusb1
+        - libusb1-devel
+        - libX11-devel
+        - libxcb-devel
+        - libXrandr-devel
+        - mesa-libGL-devel
+        - ninja-build
+        - openxr-devel
+        - SDL2-devel
+        - vulkan-devel
+        - vulkan-loader-devel
+        - wayland-devel
+        - wayland-protocols-devel
 
   # Setup Copr repos
   - type: script
