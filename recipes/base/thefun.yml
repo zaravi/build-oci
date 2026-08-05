@@ -1,6 +1,14 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+#
+# This file is mostly just copying Bazzite's homework directly from the containerfile.
 modules:
+  # Install Envision rundime dependancies
+  - type: dnf
+    install:
+      packages:
+        - vte291-gtk4
+
   # Setup Copr repos
   - type: script
     snippets:
